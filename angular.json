@@ -17,9 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": [
-              "bezier-easing"
-            ],
+            "allowedCommonJsDependencies": ["bezier-easing"],
             "outputPath": "dist/Spike",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -29,7 +27,11 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.scss",
-              "src/assets/scss/style.scss"
+              "src/assets/scss/style.scss",
+              "node_modules/ag-grid-community/styles/ag-grid.css",
+              "node_modules/ag-grid-community/styles/ag-theme-alpine.css",
+              "node_modules/ag-grid-community/styles/ag-theme-quartz.css",
+              "node_modules/ag-grid-community/styles/ag-theme-balham.css"
             ],
             "scripts": []
           },
@@ -85,7 +87,11 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss",
+              "node_modules/ag-grid-community/styles/ag-grid.css",
+              "node_modules/ag-grid-community/styles/ag-theme-alpine.css"
+            ],
             "scripts": []
           }
         }
