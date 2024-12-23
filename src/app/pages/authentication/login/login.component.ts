@@ -18,7 +18,8 @@ import { Title } from '@angular/platform-browser';
   selector: 'app-login',
   standalone: true,
   imports: [RouterModule, MaterialModule, FormsModule, ReactiveFormsModule],
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
 export class AppLoginComponent {
   options = this.settings.getOptions();
@@ -60,7 +61,7 @@ export class AppLoginComponent {
           );
           sessionStorage.setItem('userEmail', res.userDto.emailId);
           sessionStorage.setItem('firmId', res.userDto.firmId);
-          this.router.navigate(['/starter']);
+          this.router.navigate(['/firm']);
         },
         (error: any) => {
           console.log(error);

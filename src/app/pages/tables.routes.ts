@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { AppBasicTableComponent } from '../fs/basic-table/basic-table.component';
+import { AppBasicTableComponent } from '../fs/basic-table/firm-list.component';
 
 // tables
 

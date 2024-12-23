@@ -14,16 +14,11 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/starter',
+        redirectTo: '/firm',
         pathMatch: 'full'
       },
       {
-        path: 'starter',
-        loadChildren: () =>
-          import('./pages/pages.routes').then(m => m.PagesRoutes)
-      },
-      {
-        path: 'tables',
+        path: 'firm',
         loadChildren: () =>
           import('./pages/tables.routes').then(m => m.TablesRoutes)
       }

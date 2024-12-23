@@ -5,15 +5,9 @@ export const navItems: NavItem[] = [
     navCap: 'Home'
   },
   {
-    displayName: 'Starter',
+    displayName: 'Firm',
     iconName: 'home',
     bgcolor: 'primary',
-    route: '/starter'
-  },
-  {
-    displayName: 'Tables',
-    iconName: 'home',
-    bgcolor: 'primary',
-    route: '/tables'
+    route: '/firm'
   }
 ];

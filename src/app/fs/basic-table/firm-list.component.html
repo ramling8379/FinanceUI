@@ -1,0 +1,25 @@
+<mat-card class="cardWithShadow">
+  <div class="row justify-content-between gap-16">
+    <mat-card-header class="d-flex">
+      <mat-card-title>Firm List</mat-card-title>
+    </mat-card-header>
+    <div
+      class="col-sm-4 d-flex justify-content-end align-items-center add-button"
+    >
+      <button mat-flat-button color="primary">
+        <div class="d-flex align-items-center">
+          <i-tabler class="icon-20 m-r-4" name="plus"></i-tabler
+          ><span> Add</span>
+        </div>
+      </button>
+    </div>
+  </div>
+  <mat-card-content>
+    <fs-grid
+      [columns]="parentColumnDefs"
+      [rowData]="firmData"
+      (editEvent)="onEdit($event)"
+      (deleteEvent)="onDelete($event)"
+    ></fs-grid>
+  </mat-card-content>
+</mat-card>

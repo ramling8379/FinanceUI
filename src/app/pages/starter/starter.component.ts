@@ -7,6 +7,6 @@ import { MaterialModule } from 'src/app/material.module';
   standalone: true,
   imports: [MaterialModule],
   styleUrls: ['./starter.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class StarterComponent {}

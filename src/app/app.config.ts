@@ -1,18 +1,18 @@
 import {
   ApplicationConfig,
   provideZoneChangeDetection,
-  importProvidersFrom,
+  importProvidersFrom
 } from '@angular/core';
 import {
   HttpClient,
   provideHttpClient,
-  withInterceptorsFromDi,
+  withInterceptorsFromDi
 } from '@angular/common/http';
 import { routes } from './app.routes';
 import {
   provideRouter,
   withComponentInputBinding,
-  withInMemoryScrolling,
+  withInMemoryScrolling
 } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideClientHydration } from '@angular/platform-browser';
@@ -41,12 +41,11 @@ export const appConfig: ApplicationConfig = {
       routes,
       withInMemoryScrolling({
         scrollPositionRestoration: 'enabled',
-        anchorScrolling: 'enabled',
+        anchorScrolling: 'enabled'
       }),
       withComponentInputBinding()
     ),
     provideHttpClient(withInterceptorsFromDi()),
-    provideClientHydration(),
     provideAnimationsAsync(),
     importProvidersFrom(
       FormsModule,
@@ -58,9 +57,9 @@ export const appConfig: ApplicationConfig = {
         loader: {
           provide: TranslateLoader,
           useFactory: HttpLoaderFactory,
-          deps: [HttpClient],
-        },
+          deps: [HttpClient]
+        }
       })
-    ),
-  ],
+    )
+  ]
 };

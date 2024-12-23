@@ -2,15 +2,15 @@ import { NavItem } from '../../vertical/sidebar/nav-item/nav-item';
 
 export const navItems: NavItem[] = [
   {
-    navCap: 'Home',
+    navCap: 'Home'
   },
   {
-    displayName: 'Starter',
+    displayName: 'Firm',
     iconName: 'home',
-    route: '/starter',
+    route: '/firm'
   },
   {
-    navCap: 'Other',
+    navCap: 'Other'
   },
   {
     displayName: 'Menu Level',
@@ -25,28 +25,28 @@ export const navItems: NavItem[] = [
           {
             displayName: 'Menu 1',
             iconName: 'point',
-            route: '/menu-1',
+            route: '/menu-1'
           },
 
           {
             displayName: 'Menu 2',
             iconName: 'point',
-            route: '/menu-2',
-          },
-        ],
+            route: '/menu-2'
+          }
+        ]
       },
 
       {
         displayName: 'Menu 2',
         iconName: 'point',
-        route: '/menu-2',
-      },
-    ],
+        route: '/menu-2'
+      }
+    ]
   },
   {
     displayName: 'Disabled',
     iconName: 'ban',
     route: '/disabled',
-    disabled: true,
-  },
+    disabled: true
+  }
 ];

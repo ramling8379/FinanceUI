@@ -1,16 +1,11 @@
-<mat-card class="cardWithShadow">
-  <mat-card-header class="d-flex">
-    <mat-card-title>{{ header }}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <ag-grid-angular
-      style=" height: 400px;"
-      class="ag-theme-alpine"
-      [rowData]="rowData"
-      [defaultColDef]="defaultColDef"
-      [columnDefs]="columnDefs"
-      [pagination]="true"
-      [paginationPageSize]="10"
-    ></ag-grid-angular>
-  </mat-card-content>
-</mat-card>
+<ag-grid-angular
+  style=" height: 400px;"
+  class="ag-theme-alpine"
+  [rowData]="rowData"
+  [defaultColDef]="defaultColDef"
+  [columnDefs]="columnDefs"
+  [pagination]="true"
+  [paginationPageSize]="10"
+  [domLayout]="'autoHeight'"
+  [components]="frameworkComponents"
+></ag-grid-angular>

@@ -1,28 +1,40 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { AgGridModule } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
+import { ActionButtonsComponent } from './action-buttons/action-buttons.component';
 
 @Component({
   selector: 'fs-grid',
   standalone: true,
-  imports: [MatCardModule, AgGridModule],
+  imports: [MatCardModule, AgGridModule, ActionButtonsComponent],
   templateUrl: './fs-grid.component.html',
   styleUrls: ['./fs-grid.component.scss']
 })
 export class FsGridComponent implements OnInit {
   @Input() columns: any = [];
   @Input() rowData: any = [];
-  @Input() header = '';
   @Input() filter = true;
   @Input() sortable = true;
   @Input() resizable = true;
   @Input() floatingFilter = true;
+  @Output() editEvent = new EventEmitter<string>();
+  @Output() deleteEvent = new EventEmitter<string>();
   columnDefs: ColDef[] = [];
   constructor() {}
   ngOnInit(): void {
     if (this.isColDefArray(this.columns)) {
       this.columnDefs = this.columns as ColDef[]; // Safe to assign after validation
+      this.columnDefs.push({
+        headerName: 'Actions',
+        filter: false,
+        flex: 0.5,
+        cellRenderer: 'actionButtonsRenderer', // Use the custom action button component
+        cellRendererParams: {
+          onEdit: this.onEdit.bind(this),
+          onDelete: this.onDelete.bind(this)
+        }
+      });
     } else {
       console.error('Invalid array structure');
     }
@@ -41,5 +53,17 @@ export class FsGridComponent implements OnInit {
       item =>
         typeof item.field === 'string' && typeof item.headerName === 'string' // Check required properties
     );
+  }
+
+  frameworkComponents = {
+    actionButtonsRenderer: ActionButtonsComponent // Register the action button renderer
+  };
+
+  onEdit(rowData: any): void {
+    this.editEvent.emit(rowData);
+  }
+
+  onDelete(rowData: any): void {
+    this.deleteEvent.emit(rowData);
   }
 }
